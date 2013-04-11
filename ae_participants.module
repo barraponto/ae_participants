@@ -5,3 +5,46 @@
  */
 
 include_once 'ae_participants.features.inc';
+
+/**
+ * Implements hook_module_implements_alter().
+ *
+ * This hook is implemented to move our ae_participants_modules_enabled()
+ * hook implementation to the bottom of the ordering so as to run after the
+ * problematic features_modules_enabled() implementation.
+ */
+function ae_participants_module_implements_alter(&$implementations, $hook) {
+  if ($hook == 'modules_enabled') {
+    $group = $implementations['ae_participants'];
+    unset($implementations['ae_participants']);
+    $implementations['ae_participants'] = $group;
+  }
+}
+
+/**
+ * Implements hook_modules_enabled().
+ *
+ * This hook is implemented to assign some default permissions for ae_participants's
+ * profiles. This has to be done in this hook to run after both features
+ * and defaultconfig which power the functionality. Hopefully a more general solution
+ * can be found. More information - http://drupal.org/node/1837312.
+ */
+function ae_participants_modules_enabled($modules) {
+  // Only run this logic if we are executing as part of an install profile
+  if (variable_get('install_task', 'done') != 'done') {
+
+    // Rebuild some caches so this all works right
+    features_flush_caches();
+    drupal_static_reset();
+
+    // Define some permissions for the participant role
+    $participant = user_role_load_by_name('participant');
+    user_role_grant_permissions($participant->rid, array('edit own ae_participant profile'));
+    user_role_grant_permissions($participant->rid, array('view own ae_participant profile'));
+
+    // Define some permissions for the administrator role
+    $administrator = user_role_load_by_name('administrator');
+    user_role_grant_permissions($administrator->rid, array('edit own ae_participant profile'));
+    user_role_grant_permissions($administrator->rid, array('view own ae_participant profile'));
+  }
+}
