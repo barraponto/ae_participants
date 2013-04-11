@@ -21,12 +21,32 @@ function ae_participants_defaultconfig_features() {
 function ae_participants_defaultconfig_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: edit any ae_participant profile.
+  $permissions['edit any ae_participant profile'] = array(
+    'name' => 'edit any ae_participant profile',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
+    ),
+    'module' => 'profile2',
+  );
+
   // Exported permission: edit own ae_participant profile.
   $permissions['edit own ae_participant profile'] = array(
     'name' => 'edit own ae_participant profile',
     'roles' => array(
       'administrator' => 'administrator',
       'participant' => 'participant',
+    ),
+    'module' => 'profile2',
+  );
+
+  // Exported permission: view any ae_participant profile.
+  $permissions['view any ae_participant profile'] = array(
+    'name' => 'view any ae_participant profile',
+    'roles' => array(
+      'administrator' => 'administrator',
+      'editor' => 'editor',
     ),
     'module' => 'profile2',
   );
