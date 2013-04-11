@@ -16,6 +16,7 @@ dependencies[] = profile2
 dependencies[] = profile2_page
 dependencies[] = select_or_other
 dependencies[] = text
+features[user_role][] = participant
 features[defaultconfig][] = user_default_permissions:edit own ae_participant profile
 features[defaultconfig][] = user_default_permissions:view own ae_participant profile
 features[features_api][] = api:1
