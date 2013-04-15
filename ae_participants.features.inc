@@ -15,7 +15,7 @@ function ae_participants_default_profile2_type() {
     "type" : "ae_participant",
     "label" : "Participant profile",
     "weight" : "10",
-    "data" : { "registration" : 1, "use_page" : 1 }
+    "data" : { "registration" : 0, "use_page" : 1 }
   }');
   return $items;
 }
