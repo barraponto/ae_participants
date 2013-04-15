@@ -5,6 +5,8 @@ core = 7.x
 ; Profile Entity
 projects[profile2][version] = 1.3
 projects[profile2][subdir] = contrib
+projects[profile2][version] = 1.12
+projects[profile2][subdir] = contrib
 
 ; Extra Fields
 projects[addressfield][version] = 1.0-beta3

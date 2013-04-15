@@ -14,6 +14,7 @@ dependencies[] = number
 dependencies[] = panopoly_core
 dependencies[] = profile2
 dependencies[] = profile2_page
+dependencies[] = profile2_regpath
 dependencies[] = select_or_other
 dependencies[] = text
 features[defaultconfig][] = user_default_permissions:edit any ae_participant profile
