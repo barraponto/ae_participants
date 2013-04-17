@@ -7,7 +7,7 @@ projects[profile2][version] = 1.3
 projects[profile2][subdir] = contrib
 projects[profile2_regpath][version] = 1.12
 projects[profile2_regpath][subdir] = contrib
-projects[profile2_regpath][patch][1340068] = http://drupal.org/files/profile2_regpath-logintoboggan_403_integration-1340068-4.patch
+projects[profile2_regpath][patch][1340068] = http://drupal.org/files/profile2_regpath-logintoboggan_403_integration-1340068-5.patch
 
 ; Extra Fields
 projects[addressfield][version] = 1.0-beta3
